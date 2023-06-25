@@ -111,6 +111,12 @@ if(session.getAttribute("sessionId")!=null){
 	function logoutProc(){
 		location.href="../dbConnectTest5_login/logoutProc.jsp";
 	}
+	
+	function clearVal(){
+		//alert("hi"); 검색창을 클릭만 해도 alert 창이 활성화 됨
+		var inputVal = document.getElementById("questionVal");
+		inputVal.value = "";
+	}
 </script>
 </body>
 </html>
