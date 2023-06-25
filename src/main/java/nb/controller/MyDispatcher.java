@@ -12,6 +12,7 @@ import nb.controller.dbConnectTest5.NbEditController;
 import nb.controller.dbConnectTest5.NbEditProcController;
 import nb.controller.dbConnectTest5.NbInsertProController;
 import nb.controller.dbConnectTest5.NbInsertRegController;
+import nb.controller.dbConnectTest5.NoticeBoardsController;
 
 public class MyDispatcher extends HttpServlet{
 	@Override
@@ -49,7 +50,10 @@ public class MyDispatcher extends HttpServlet{
 				nbController = new NbInsertProController();
 			}else if(com.equals("/dbConnectTest5_notices/noticeboardsDelProc.do")) {
 				nbController = new NbDelProcController();
+			}else if(com.equals("/dbConnectTest5_notices/noticeboards.do")) {
+				nbController = new NoticeBoardsController();
 			}
+				
 			nbController.execute(request, response);
 		} catch (Exception e) {
 			// TODO: handle exception

@@ -117,6 +117,16 @@ if(session.getAttribute("sessionId")!=null){
 		var inputVal = document.getElementById("questionVal");
 		inputVal.value = "";
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 </script>
 </body>
 </html>
