@@ -36,23 +36,37 @@ rs=stmt.executeQuery(sql);
 <head>
 <meta charset="UTF-8">
 <title>my jsp file</title>
+<link rel="stylesheet" href="../css/nb_style.css" />
 </head>
 <body>
 <h3>Noticeboards</h3>
 
-<%
-if(session.getAttribute("sessionId")==null){
-	//response.sendRedirect("../dbConnectTest5_login/loginForm.jsp");
-	//return;
-	//위의 주석을 해제하면 정상작동하나 로그인하지 않으면 게시글 읽기 자체도 불가능하게 됨
-	System.out.println("noticeboards에 로그인하지않고 접근");
-}else{
-%>
-	<%=session.getAttribute("sessionId") %>님이 로그인하셨습니다.
-	<input type="button" value="logout" onclick="logoutProc();" /> <br />
-<%
-}
-%>
+<div id="loginCheck">
+	<%
+	if(session.getAttribute("sessionId")==null){
+		//response.sendRedirect("../dbConnectTest5_login/loginForm.jsp");
+		//return;
+		//위의 주석을 해제하면 정상작동하나 로그인하지 않으면 게시글 읽기 자체도 불가능하게 됨
+		System.out.println("noticeboards에 로그인하지않고 접근");
+	}else{
+	%>
+		<%=session.getAttribute("sessionId") %>님이 로그인하셨습니다.
+		<input type="button" value="logout" onclick="logoutProc();" /> <br />
+	<%
+	}
+	%>
+</div>
+
+<div class="nbList">
+	<form action="noticeboards.do" method="get">
+		<select name="search">
+			<option value="title">제목</option>
+			<option value="content">내용</option>
+		</select>
+		<input type="text" id="questionVal" name="questionVal" onclick="clearVal();" size="40"/>
+		<input type="submit" value="검색" />
+	</form>
+</div>
 
 <table border="1" width="100%">
 	<tr>
