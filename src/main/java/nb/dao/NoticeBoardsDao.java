@@ -9,6 +9,10 @@ import nb.db.DBCon;
 import nb.vo.NoticeBoards;
 
 public class NoticeBoardsDao {
+	public void getList() {
+		
+	}
+	
 	public int delete(NoticeBoards nb) throws Exception {
 		int cnt = 0;
 		
