@@ -78,7 +78,7 @@ rs.next(); */
 			<th class="left">작성자</th>
 			<td>${nb.writer}</td>
 			<th class="left">작성일</th>
-			<td>${nb.regdate}</td>
+			<td>${nb.regdate}</td> <!-- rs.setDate 사용 -->
 		</tr>
 		<tr>
 			<th class="left">제목</th>

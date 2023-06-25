@@ -4,13 +4,35 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 
 import nb.db.DBCon;
 import nb.vo.NoticeBoards;
 
 public class NoticeBoardsDao {
-	public void getList() {
+	public void getList() throws Exception {
+		Connection conn = DBCon.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		
+		String sql = "select * from noticeboards order by seq desc";
+		pstmt = conn.prepareStatement(sql);
+		rs = pstmt.executeQuery();
+
+		//리스트를 담을 그릇
+		List<NoticeBoards> list = new ArrayList<NoticeBoards>();
+		while(rs.next()) {
+			NoticeBoards nb = new NoticeBoards();
+			nb.setSeq(rs.getInt("seq"));
+			nb.setTitle(rs.getString("title"));
+			nb.setWriter(rs.getString("writer"));
+			nb.setContent(rs.getString("content"));
+			nb.setRegdate(rs.getDate("regdate"));
+			nb.setHit(rs.getInt("hit"));
+			
+			list.add(nb);
+		}
 	}
 	
 	public int delete(NoticeBoards nb) throws Exception {
