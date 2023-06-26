@@ -1,9 +1,12 @@
 package nb.controller.dbConnectTest5;
 
+import java.util.List;
+
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import nb.controller.NbController;
 import nb.dao.NoticeBoardsDao;
+import nb.vo.NoticeBoards;
 
 public class NoticeBoardsController implements NbController{
 
@@ -12,7 +15,7 @@ public class NoticeBoardsController implements NbController{
 		System.out.println("NoticeBoardsContoller mvc2 신호");
 	
 		NoticeBoardsDao dao = new NoticeBoardsDao();
-		dao.getList();
+		List<NoticeBoards> list = dao.getList();
 		
 		
 		
@@ -23,5 +26,8 @@ public class NoticeBoardsController implements NbController{
 	
 		String questionVal = request.getParameter("questionVal");
 		System.out.println("questionVal : "+questionVal);
+		
+		request.setAttribute("list", list);
+		request.getRequestDispatcher("noticeboards.jsp").forward(request, response);
 	}
 }
