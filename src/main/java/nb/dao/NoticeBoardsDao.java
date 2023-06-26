@@ -11,7 +11,7 @@ import nb.db.DBCon;
 import nb.vo.NoticeBoards;
 
 public class NoticeBoardsDao {
-	public void getList() throws Exception {
+	public List<NoticeBoards> getList() throws Exception {
 		Connection conn = DBCon.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -33,6 +33,7 @@ public class NoticeBoardsDao {
 			
 			list.add(nb);
 		}
+		return list;
 	}
 	
 	public int delete(NoticeBoards nb) throws Exception {
