@@ -94,6 +94,33 @@ public class NoticeBoardsDao {
 		return cnt;
 	}
 	
+	public NoticeBoards getNBD(String num) throws Exception {
+		Connection conn = DBCon.getConnection();
+
+		String sql = "select * from noticeboards where seq=?";
+
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, Integer.parseInt(num));
+
+		ResultSet rs = pstmt.executeQuery();
+		rs.next();
+		
+		//NoticeBoards.java에 저장(setting)
+		NoticeBoards nb = new NoticeBoards();
+		nb.setSeq(rs.getInt("seq"));
+		nb.setHit(rs.getInt("hit"));
+		nb.setWriter(rs.getString("writer"));
+		nb.setRegdate(rs.getDate("regdate"));
+		nb.setTitle(rs.getString("title"));
+		nb.setContent(rs.getString("content"));
+		
+		rs.close();
+		pstmt.close();
+		conn.close();
+		
+		return nb;
+	}
+	
 	public NoticeBoards getNBD(String num, String hit) throws Exception {
 		Connection conn = DBCon.getConnection();
 		
