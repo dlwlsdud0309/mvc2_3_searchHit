@@ -11,12 +11,13 @@ import nb.db.DBCon;
 import nb.vo.NoticeBoards;
 
 public class NoticeBoardsDao {
-	public List<NoticeBoards> getList() throws Exception {
+	public List<NoticeBoards> getList(String field, String questionVal) throws Exception {
 		Connection conn = DBCon.getConnection();
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String sql = "select * from noticeboards order by seq desc";
+//		String sql = "select * from noticeboards order by seq desc";
+		String sql = "select * from noticeboards where "+field+" like '%"+questionVal+"%' order by seq desc";
 		pstmt = conn.prepareStatement(sql);
 		rs = pstmt.executeQuery();
 

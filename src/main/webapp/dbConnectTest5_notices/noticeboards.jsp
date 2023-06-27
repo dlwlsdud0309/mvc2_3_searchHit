@@ -88,26 +88,6 @@ rs=stmt.executeQuery(sql);
 		<td>${nb.hit }</td>
 	</tr>
 </c:forEach>
-	
-	
-<%-- <%
-	while(rs.next()){
-%>
-	<tr>
-		<td><%=rs.getInt("seq") %></td>
-		<td>
-			<a href="noticeboardsDetail.do?no=<%=rs.getInt("seq") %>"><%=rs.getString("title") %></a>
-		</td>
-		<td><%=rs.getString("writer") %></td>
-		<td>
-			<fmt:formatDate value='<%=rs.getTimestamp("regdate") %>' pattern="yyyy-MM-dd"/>
-			<%=rs.getDate("regdate") %>
-		</td>
-		<td><%=rs.getInt("hit") %></td>
-	</tr>
-<%
-	}
-%> --%>
 </table>
 <%
 if(session.getAttribute("sessionId")!=null){

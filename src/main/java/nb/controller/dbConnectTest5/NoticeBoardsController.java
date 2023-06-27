@@ -14,18 +14,15 @@ public class NoticeBoardsController implements NbController{
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("NoticeBoardsContoller mvc2 신호");
 	
-		NoticeBoardsDao dao = new NoticeBoardsDao();
-		List<NoticeBoards> list = dao.getList();
-		
-		
-		
-		
-		
 		String field = request.getParameter("search");
 		System.out.println("field : "+field);
-	
+		
 		String questionVal = request.getParameter("questionVal");
 		System.out.println("questionVal : "+questionVal);
+
+		
+		NoticeBoardsDao dao = new NoticeBoardsDao();
+		List<NoticeBoards> list = dao.getList(field, questionVal);
 		
 		request.setAttribute("list", list);
 		request.getRequestDispatcher("noticeboards.jsp").forward(request, response);
