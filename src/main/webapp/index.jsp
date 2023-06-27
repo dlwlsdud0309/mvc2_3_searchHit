@@ -19,7 +19,7 @@ if(session.getAttribute("sessionId")==null){ //로그인이 안 된 상태
 %>
 	<%=session.getAttribute("sessionId") %>님이 로그인하셨습니다.
 	<input type="button" value="logout" onclick="logoutProc();" /> <br />
-	<a href="./dbConnectTest5_notices/noticeboards.jsp">noticeBoards</a>
+	<a href="./dbConnectTest5_notices/noticeboards.do">noticeBoards</a>
 <%
 }
 %>
