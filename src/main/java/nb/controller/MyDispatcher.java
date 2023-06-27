@@ -13,6 +13,7 @@ import nb.controller.dbConnectTest5.NbEditProcController;
 import nb.controller.dbConnectTest5.NbInsertProController;
 import nb.controller.dbConnectTest5.NbInsertRegController;
 import nb.controller.dbConnectTest5.NbLoginController;
+import nb.controller.dbConnectTest5.NbLoginProcController;
 import nb.controller.dbConnectTest5.NoticeBoardsController;
 
 public class MyDispatcher extends HttpServlet{
@@ -55,6 +56,8 @@ public class MyDispatcher extends HttpServlet{
 				nbController = new NoticeBoardsController();
 			}else if(com.equals("/dbConnectTest5_login/loginForm.do")) {
 				nbController = new NbLoginController();
+			}else if(com.equals("/dbConnectTest5_login/loginProc.do")) {
+				nbController = new NbLoginProcController();
 			}
 				
 			nbController.execute(request, response);
