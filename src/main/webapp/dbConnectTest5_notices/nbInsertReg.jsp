@@ -12,25 +12,39 @@ String loginId = (String)session.getAttribute("sessionId");
 <head>
 <meta charset="UTF-8">
 <title>my jsp file</title>
+<link rel="stylesheet" href="../css/nstyle.css" />
 </head>
 <body>
 <h3>nbInsertReg.jsp</h3>
 <form action="nbInsertPro.do" method="post">
-	<dl>
-		<dt>제목</dt>
-		<dt>
-			<input type="text" name="title" placeholder="제목을 입력하세요"/>
-		</dt>
-	</dl>
-	<dl>
-		<dt>첨부파일</dt>
-		<dt>
-			<input type="file" name="txtfile" />
-		</dt>
-	</dl>
-	<div>
-		<textarea name="content" id="txtcontent" class="txtcontent" placeholder="내용을 입력하세요"></textarea>
-	</div>
+	
+	<table class="twidth">
+		<colgroup>
+			<col width="30%"/>
+			<col width="70%"/>
+		</colgroup>
+		<caption>WRITE</caption>
+		<tbody>
+			<tr>
+				<td>제목</td>
+				<td>
+					<input type="text" name="title" placeholder="제목을 입력하세요" size="48"/>
+				</td>
+			</tr>
+			<tr>
+				<td>내용</td>
+				<td>
+					<textarea rows="5" cols="50" name="content" id="txtcontent" class="txtcontent" placeholder="내용을 입력하세요"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>첨부파일</td>
+				<td>
+					<input type="file" name="txtFile" />
+				</td>
+			</tr>
+		</tbody>
+	</table>
 	<input type="hidden" name="loginId" value="<%=loginId %>" />
 	<input type="submit" value="insert" />
 </form>

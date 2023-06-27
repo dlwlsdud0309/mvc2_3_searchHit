@@ -96,7 +96,7 @@ if(session.getAttribute("sessionId")!=null){
 <%
 }else {
 %>
-	<a href="../dbConnectTest5_login/loginForm.jsp">login</a>
+	<a href="../dbConnectTest5_login/loginForm.do">login</a>
 <%
 }
 %>
