@@ -16,10 +16,15 @@ public class NoticeBoardsController implements NbController{
 	
 		String field = request.getParameter("search");
 		System.out.println("field : "+field);
+		if(field==null || field.equals("")) {
+			field="title";
+		}
 		
 		String questionVal = request.getParameter("questionVal");
 		System.out.println("questionVal : "+questionVal);
-
+		if(questionVal==null) {
+			questionVal="";
+		}
 		
 		NoticeBoardsDao dao = new NoticeBoardsDao();
 		List<NoticeBoards> list = dao.getList(field, questionVal);
