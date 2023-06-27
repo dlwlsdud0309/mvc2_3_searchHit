@@ -30,6 +30,8 @@ public class NoticeBoardsController implements NbController{
 		List<NoticeBoards> list = dao.getList(field, questionVal);
 		
 		request.setAttribute("list", list);
+		request.setAttribute("questionVal", questionVal);
+		
 		request.getRequestDispatcher("noticeboards.jsp").forward(request, response);
 	}
 }

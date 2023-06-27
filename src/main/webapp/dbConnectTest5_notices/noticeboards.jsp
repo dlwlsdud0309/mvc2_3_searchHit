@@ -64,7 +64,7 @@ rs=stmt.executeQuery(sql);
 			<option value="title">제목</option>
 			<option value="content">내용</option>
 		</select>
-		<input type="text" id="questionVal" name="questionVal" onclick="clearVal();" size="40"/>
+		<input type="text" id="questionVal" name="questionVal" value="${questionVal }" onclick="clearVal();" size="40"/>
 		<input type="submit" value="검색" />
 	</form>
 </div>
