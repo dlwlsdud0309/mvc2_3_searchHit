@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -93,8 +94,11 @@ public class NoticeBoardsDao {
 		return cnt;
 	}
 	
-	public NoticeBoards getNBD(String num) throws Exception {
+	public NoticeBoards getNBD(String num, String hit) throws Exception {
 		Connection conn = DBCon.getConnection();
+		
+		//조회수 추가
+		hitUp(num, hit);
 
 		String sql = "select * from noticeboards where seq=?";
 
@@ -118,5 +122,16 @@ public class NoticeBoardsDao {
 		conn.close();
 		
 		return nb;
+	}
+
+	private void hitUp(String num, String hit) throws Exception {
+		Connection conn = DBCon.getConnection();
+		
+		String sqlHit = "update noticeboards set hit=? where seq=?";
+		
+		PreparedStatement pstmtHit = conn.prepareStatement(sqlHit);
+		pstmtHit.setInt(1, Integer.parseInt(hit)+1);
+		pstmtHit.setInt(2, Integer.parseInt(num));
+		pstmtHit.executeUpdate();
 	}
 }

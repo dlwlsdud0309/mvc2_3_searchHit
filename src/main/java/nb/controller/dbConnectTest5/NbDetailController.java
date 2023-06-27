@@ -11,6 +11,7 @@ public class NbDetailController implements NbController{
 		System.out.println("NbDetailController mvc2 신호");
 		
 		String num = request.getParameter("no");
+		String hit = request.getParameter("hit");
 		
 		if(num==null){
 			System.out.println("null");
@@ -20,7 +21,7 @@ public class NbDetailController implements NbController{
 		}
 
 		NoticeBoardsDao dao = new NoticeBoardsDao();
-		NoticeBoards nb = dao.getNBD(num);
+		NoticeBoards nb = dao.getNBD(num, hit);
 		String loginId = nb.getWriter();
 		
 		request.setAttribute("nb", nb);

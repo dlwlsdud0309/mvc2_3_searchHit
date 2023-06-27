@@ -40,7 +40,7 @@ rs=stmt.executeQuery(sql);
 <link rel="stylesheet" href="../css/nb_style.css" />
 </head>
 <body>
-<h3>Noticeboards</h3>
+<h3><a href="noticeboards.do">Noticeboards</a></h3>
 
 <div id="loginCheck">
 	<%
@@ -81,7 +81,7 @@ rs=stmt.executeQuery(sql);
 	<tr>
 		<td>${nb.seq }</td>
 		<td>
-			<a href="noticeboardsDetail.do?no=${nb.seq }">${nb.title }</a>
+			<a href="noticeboardsDetail.do?no=${nb.seq }&hit=${nb.hit}">${nb.title }</a>
 		</td>
 		<td>${nb.writer }</td>
 		<td>${nb.regdate }</td>
