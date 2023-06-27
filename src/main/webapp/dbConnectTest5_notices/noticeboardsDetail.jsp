@@ -95,7 +95,7 @@ rs.next(); */
 	</tbody>
 </table>
 
-<a href="noticeboards.jsp">목록</a>
+<a href="noticeboards.do">목록</a>
 <%
 if(session.getAttribute("sessionId")!=null){ //로그인 되어있을 경우
 	if(session.getAttribute("sessionId").equals(request.getAttribute("writerId"))) {

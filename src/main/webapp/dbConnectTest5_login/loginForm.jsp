@@ -53,7 +53,7 @@ request.setCharacterEncoding("utf-8");
 
 <script>
 	function noticeBoards(){
-		location.href="../dbConnectTest5_notices/noticeboards.jsp";
+		location.href="../dbConnectTest5_notices/noticeboards.do";
 	}
 
 	function joinForm(){
