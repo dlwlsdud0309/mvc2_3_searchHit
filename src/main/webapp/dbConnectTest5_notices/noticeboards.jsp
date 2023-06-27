@@ -61,8 +61,8 @@ rs=stmt.executeQuery(sql);
 <div class="nbList">
 	<form action="noticeboards.do" method="get">
 		<select name="search">
-			<option value="title">제목</option>
-			<option value="content">내용</option>
+			<option ${param.search=="title"?"selected":"" } value="title">제목</option>
+			<option ${param.search=="content"?"selected":"" } value="content">내용</option>
 		</select>
 		<input type="text" id="questionVal" name="questionVal" value="${questionVal }" onclick="clearVal();" size="40"/>
 		<input type="submit" value="검색" />
