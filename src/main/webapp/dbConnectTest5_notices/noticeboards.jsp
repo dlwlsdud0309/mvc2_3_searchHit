@@ -6,12 +6,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
 request.setCharacterEncoding("utf-8");
 %>
 
 <%
-Connection conn=null;
+/* Connection conn=null;
 //PreparedStatement pstmt=null;
 Statement stmt=null;
 ResultSet rs=null;
@@ -29,7 +30,7 @@ String sql="select * from noticeboards order by seq desc";
 stmt=conn.createStatement();
 rs=stmt.executeQuery(sql);
 //rs.next();
-//System.out.println(rs.getString("title"));
+//System.out.println(rs.getString("title")); */
 %>
 <!DOCTYPE html>
 <html>
@@ -76,7 +77,20 @@ rs=stmt.executeQuery(sql);
 		<td>작성일</td>
 		<td>조회수</td>
 	</tr>
-<%
+<c:forEach items="${list }" var="nb">
+	<tr>
+		<td>${nb.seq }</td>
+		<td>
+			<a href="noticeboardsDetail.do?no=${nb.seq }">${nb.title }</a>
+		</td>
+		<td>${nb.writer }</td>
+		<td>${nb.regdate }</td>
+		<td>${nb.hit }</td>
+	</tr>
+</c:forEach>
+	
+	
+<%-- <%
 	while(rs.next()){
 %>
 	<tr>
@@ -86,14 +100,14 @@ rs=stmt.executeQuery(sql);
 		</td>
 		<td><%=rs.getString("writer") %></td>
 		<td>
-			<%-- <fmt:formatDate value='<%=rs.getTimestamp("regdate") %>' pattern="yyyy-MM-dd"/> --%>
+			<fmt:formatDate value='<%=rs.getTimestamp("regdate") %>' pattern="yyyy-MM-dd"/>
 			<%=rs.getDate("regdate") %>
 		</td>
 		<td><%=rs.getInt("hit") %></td>
 	</tr>
 <%
 	}
-%>
+%> --%>
 </table>
 <%
 if(session.getAttribute("sessionId")!=null){
