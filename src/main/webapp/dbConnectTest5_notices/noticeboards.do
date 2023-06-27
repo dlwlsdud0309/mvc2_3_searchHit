@@ -1,0 +1,1 @@
+noticeboards.do로 바로 접근
