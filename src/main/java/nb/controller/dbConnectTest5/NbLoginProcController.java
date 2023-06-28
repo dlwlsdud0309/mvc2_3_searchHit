@@ -3,6 +3,8 @@ package nb.controller.dbConnectTest5;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import nb.controller.NbController;
+import nb.dao.NbMember;
+import nb.dao.NbMemberDao;
 
 public class NbLoginProcController implements NbController{
 
@@ -15,6 +17,9 @@ public class NbLoginProcController implements NbController{
 		
 		System.out.println("id : "+id);
 		System.out.println("pass : "+pass);
+		
+		NbMemberDao mDao = new NbMemberDao();
+		NbMember m = mDao.getMember();
 		
 		request.getRequestDispatcher("loginForm.jsp").forward(request, response);
 	}
