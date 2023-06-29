@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class NbMemberDao {
-	public NbMember getMember() {
+	public NbMember getMember() throws Exception {
 		
 		String driver = "oracle.jdbc.driver.OracleDriver";
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
@@ -19,7 +19,7 @@ public class NbMemberDao {
 		String sql = "select id,pwd from nbmember where id=?";
 
 		PreparedStatement pstmt = conn.prepareStatement(sql);
-		pstmt.setString(1, id);
+		//pstmt.setString(1, id);
 
 		ResultSet rs = pstmt.executeQuery();
 		
