@@ -12,7 +12,7 @@ String id = request.getParameter("id");
 String pass = request.getParameter("pass");
 
 //db접속
-String driver = "oracle.jdbc.driver.OracleDriver";
+/* String driver = "oracle.jdbc.driver.OracleDriver";
 String url = "jdbc:oracle:thin:@localhost:1521:xe";
 String user = "hr";
 String pw = "123456";
@@ -25,7 +25,7 @@ String sql = "select id,pwd from nbmember where id=?";
 PreparedStatement pstmt = conn.prepareStatement(sql);
 pstmt.setString(1, id);
 
-ResultSet rs = pstmt.executeQuery();
+ResultSet rs = pstmt.executeQuery(); */
 //rs.next();
 //System.out.println("id : "+rs.getString("id")+" :: "+"pw : "+rs.getString(2)); //인덱스 1부터 시작
 
