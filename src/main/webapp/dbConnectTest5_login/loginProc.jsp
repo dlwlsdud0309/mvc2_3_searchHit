@@ -8,8 +8,8 @@
 request.setCharacterEncoding("utf-8");
 %>
 <%
-String id = request.getParameter("id");
-String pass = request.getParameter("pass");
+/* String id = request.getParameter("id");
+String pass = request.getParameter("pass"); */
 
 //db접속
 /* String driver = "oracle.jdbc.driver.OracleDriver";

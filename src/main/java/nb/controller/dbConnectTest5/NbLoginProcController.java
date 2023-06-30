@@ -12,14 +12,17 @@ public class NbLoginProcController implements NbController{
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("NbLoginProcController mvc2 신호");
 		
-		String id = request.getParameter("id");
-		String pass = request.getParameter("pass");
+		String uid = request.getParameter("id");
+		String password = request.getParameter("pass");
 		
-		System.out.println("id : "+id);
-		System.out.println("pass : "+pass);
+		System.out.println("id : "+uid);
+		System.out.println("pass : "+password);
 		
 		NbMemberDao mDao = new NbMemberDao();
-		NbMember m = mDao.getMember();
+		NbMember m = mDao.getMember(uid);
+		
+//		System.out.println("uid : "+uid+", m.getId : "+m.getId());
+		//없는 아이디는 출력이 되지 않는 것 같다(m.getId)
 		
 		request.getRequestDispatcher("loginForm.jsp").forward(request, response);
 	}
