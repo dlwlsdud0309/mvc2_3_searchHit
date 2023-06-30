@@ -24,6 +24,10 @@ public class NbLoginProcController implements NbController{
 //		System.out.println("uid : "+uid+", m.getId : "+m.getId());
 		//없는 아이디는 출력이 되지 않는 것 같다(m.getId)
 		
+		if(m == null) {
+			
+		}
+		
 		request.getRequestDispatcher("loginForm.jsp").forward(request, response);
 	}
 }
