@@ -25,6 +25,9 @@ public class NbLoginProcController implements NbController{
 		//없는 아이디는 출력이 되지 않는 것 같다(m.getId)
 		
 		if(m == null) {
+			request.setAttribute("error", "아이디 없음");
+			request.getRequestDispatcher("loginForm.jsp").forward(request, response);
+		}else if(!m.getPwd().equals(password)) { //id는 존재하나, pwd가 불일치
 			
 		}
 		
