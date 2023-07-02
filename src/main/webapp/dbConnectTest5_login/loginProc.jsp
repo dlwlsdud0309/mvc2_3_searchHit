@@ -30,7 +30,7 @@ ResultSet rs = pstmt.executeQuery(); */
 //System.out.println("id : "+rs.getString("id")+" :: "+"pw : "+rs.getString(2)); //인덱스 1부터 시작
 
 
-String dbPass = "";
+/* String dbPass = "";
 int x = -1;
 String msg = "";
 
@@ -52,6 +52,8 @@ if(rs.next()){
 	msg="loginForm.jsp?msg=-1";
 }
 System.out.println("x : "+x);
+response.sendRedirect(msg); */
+
 
 //x값으로 전송위치를 결정
 /* if(x==1){
@@ -63,7 +65,6 @@ System.out.println("x : "+x);
 }else{
 	msg="loginForm.jsp?msg=-1";
 } */
-response.sendRedirect(msg);
 %>
 <!DOCTYPE html>
 <html>

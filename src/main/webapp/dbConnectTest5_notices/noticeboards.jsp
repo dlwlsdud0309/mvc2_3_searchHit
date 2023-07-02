@@ -57,7 +57,7 @@ rs=stmt.executeQuery(sql);
 	}
 	%>
 </div>
-
+<%-- ${uid }님이 로그인하셨습니다. dfdf --%>
 <div class="nbList">
 	<form action="noticeboards.do" method="get">
 		<select name="search">
@@ -111,16 +111,6 @@ if(session.getAttribute("sessionId")!=null){
 		var inputVal = document.getElementById("questionVal");
 		inputVal.value = "";
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 </script>
 </body>
 </html>
