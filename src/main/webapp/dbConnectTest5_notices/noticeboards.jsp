@@ -110,7 +110,7 @@ if(session.getAttribute("sessionId")!=null){
 
 <script>
 	function logoutProc(){
-		location.href="../dbConnectTest5_login/logoutProc.jsp";
+		location.href="../dbConnectTest5_login/logoutProc.do";
 	}
 	
 	function clearVal(){

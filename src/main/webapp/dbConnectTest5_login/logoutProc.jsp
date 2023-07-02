@@ -5,8 +5,8 @@ request.setCharacterEncoding("utf-8");
 %>
 <%
 //세션 삭제 후 로그인폼으로
-session.invalidate(); //모든 세션 제거
-response.sendRedirect("loginForm.jsp");
+/* session.invalidate(); //모든 세션 제거
+response.sendRedirect("loginForm.jsp"); */
 %>
 <!DOCTYPE html>
 <html>
