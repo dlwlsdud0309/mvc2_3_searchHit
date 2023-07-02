@@ -43,7 +43,7 @@ rs=stmt.executeQuery(sql);
 <h3><a href="noticeboards.do">Noticeboards</a></h3>
 
 <div id="loginCheck">
-	<%
+	<%-- <%
 	if(session.getAttribute("sessionId")==null){
 		//response.sendRedirect("../dbConnectTest5_login/loginForm.jsp");
 		//return;
@@ -55,9 +55,12 @@ rs=stmt.executeQuery(sql);
 		<input type="button" value="logout" onclick="logoutProc();" /> <br />
 	<%
 	}
-	%>
+	%> --%>
+	<c:if test="${not empty sessionId }">
+		${sessionId }님이 로그인하셨습니다.
+		<input type="button" value="logout" onclick="logoutProc();" /> <br />
+	</c:if>
 </div>
-${uid }님이 로그인하셨습니다. dfdf
 <div class="nbList">
 	<form action="noticeboards.do" method="get">
 		<select name="search">
