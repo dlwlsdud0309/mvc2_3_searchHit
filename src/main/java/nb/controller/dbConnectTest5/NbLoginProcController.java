@@ -33,6 +33,8 @@ public class NbLoginProcController implements NbController{
 		}else { //로그인 성공
 			request.getSession().setAttribute("uid", uid);
 			response.sendRedirect("../dbConnectTest5_notices/noticeboards.do");
+//			response.sendRedirect("../index.jsp");
+//			request.getRequestDispatcher("../index.jsp").forward(request, response);
 		}
 	}
 }

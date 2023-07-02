@@ -57,7 +57,7 @@ rs=stmt.executeQuery(sql);
 	}
 	%>
 </div>
-<%-- ${uid }님이 로그인하셨습니다. dfdf --%>
+${uid }님이 로그인하셨습니다. dfdf
 <div class="nbList">
 	<form action="noticeboards.do" method="get">
 		<select name="search">
