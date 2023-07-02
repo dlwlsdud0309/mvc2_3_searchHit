@@ -60,6 +60,10 @@ rs=stmt.executeQuery(sql);
 		${sessionScope.sessionId }님이 로그인하셨습니다.
 		<input type="button" value="logout" onclick="logoutProc();" /> <br />
 	</c:if>
+	<c:if test="${empty sessionScope.sessionId }">
+		<a href="../dbConnectTest5_login/loginForm.do">login</a> 
+		| <a href="../dbConnectTest5_join/nbJoin.jsp"">join</a>
+	</c:if>
 </div>
 <div class="nbList">
 	<form action="noticeboards.do" method="get">
@@ -97,12 +101,12 @@ if(session.getAttribute("sessionId")!=null){
 %>
 	<a href="nbInsertReg.do">글쓰기</a>
 <%
-}else {
-%>
-	<a href="../dbConnectTest5_login/loginForm.do">login</a>
-<%
 }
 %>
+<%-- 	<a href="../dbConnectTest5_login/loginForm.do">login</a>
+<%
+}
+%> --%>
 
 <script>
 	function logoutProc(){
