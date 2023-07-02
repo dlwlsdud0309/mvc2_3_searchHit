@@ -27,11 +27,14 @@ public class NbLoginProcController implements NbController{
 		if(m == null) {
 			request.setAttribute("error", "아이디 없음");
 			request.getRequestDispatcher("loginForm.jsp").forward(request, response);
+//			request.getRequestDispatcher("../index.jsp").forward(request, response);
 		}else if(!m.getPwd().equals(password)) { //id는 존재하나, pwd가 불일치
 			request.setAttribute("error", "비밀번호 불일치");
 			request.getRequestDispatcher("loginForm.jsp").forward(request, response);
+//			request.getRequestDispatcher("../index.jsp").forward(request, response);
 		}else { //로그인 성공
 			request.getSession().setAttribute("uid", uid);
+			request.getSession().setAttribute("sessionId", uid);
 			response.sendRedirect("../dbConnectTest5_notices/noticeboards.do");
 //			response.sendRedirect("../index.jsp");
 //			request.getRequestDispatcher("../index.jsp").forward(request, response);
