@@ -56,8 +56,8 @@ rs=stmt.executeQuery(sql);
 	<%
 	}
 	%> --%>
-	<c:if test="${not empty sessionId }">
-		${sessionId }님이 로그인하셨습니다.
+	<c:if test="${not empty sessionScope.sessionId }">
+		${sessionScope.sessionId }님이 로그인하셨습니다.
 		<input type="button" value="logout" onclick="logoutProc();" /> <br />
 	</c:if>
 </div>
